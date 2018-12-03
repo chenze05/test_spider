@@ -1,3 +1,31 @@
+# csv 1
+# import csv
+# with open('data.csv', 'w', newline='') as csv_file:
+#     writer = csv.writer(csv_file)
+#     writer.writerow(['id', 'name', 'age'])
+#     writer.writerow([1, 'hanson', 28])
+#     writer.writerow([2, 'xiaoma', 23])
+#     writer.writerows([[3, 'luffy', 19], [4, 'robin', 27]])
+
+# csv 2
+# import csv
+# with open('data2.csv', 'w', newline='') as csv_file:
+#     field_names = ['id', 'name', 'age']
+#     writer = csv.DictWriter(csv_file, fieldnames=field_names)
+#     writer.writeheader()
+#     writer.writerow({'id': 1, 'name': 'hanson', 'age': 28})
+
+# csv 3
+# import csv
+# with open('data.csv', 'r', encoding='utf-8') as csv_file:
+#     reader = csv.reader(csv_file)
+#     for row in reader:
+#         print(row)
+#         # print(type(row))
+
+
+
+
 # mysql 1
 # import pymysql
 #
@@ -38,9 +66,9 @@
 # port = 3306
 # db_name = 'spiders'
 #
-# id = '2009005'
-# name = 'chenze'
-# age = 28
+# id = '2009003'
+# name = 'xiaoma'
+# age = 23
 #
 # db = pymysql.connect(host=host, port=port, user=username, password=password, db=db_name)
 # cursor = db.cursor()
@@ -51,6 +79,44 @@
 # except:
 #     db.rollback()
 # db.close()
+
+# mysql4
+# import pymysql
+# username = 'root'
+# password = 'chenze'
+# host = 'localhost'
+# port = 3306
+# db_name = 'spiders'
+#
+# id = '2009003'
+# name = 'xiaoma'
+# age = 23
+#
+# db = pymysql.connect(host=host, port=port, user=username, password=password, db=db_name)
+# cursor = db.cursor()
+# sql = 'INSERT INTO students(id, name, age) values(%s, %s, %s)'
+# try:
+#     cursor.execute(sql, (id, name, age))
+#     db.commit()
+# except:
+#     db.rollback()
+# db.close()
+
+# mysql5
+import pymysql
+username = 'root'
+password = 'chenze'
+host = 'localhost'
+port = 3306
+db_name = 'spiders'
+
+db = pymysql.connect(host=host, port=port, user=username, password=password, db=db_name)
+cursor = db.cursor()
+sql = 'SELECT * FROM students'
+cursor.execute(sql)
+print(cursor.rowcount)
+one = cursor.fetchone()
+db.close()
 
 
 # mongo 1
@@ -78,8 +144,9 @@
 
 
 # redis 1
-from redis import StrictRedis
+# from redis import StrictRedis
+#
+# redis = StrictRedis(host='localhost', port=6379, db=0)
+# redis.set('name', 'hanson')
+# print(redis.get('name'))
 
-redis = StrictRedis(host='localhost', port=6379, db=0)
-redis.set('name', 'hanson')
-print(redis.get('name'))
