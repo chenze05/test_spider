@@ -70,17 +70,25 @@
 # print(input)
 # print(button)
 
-# selenium 6
-from selenium import webdriver
-import time
+# # selenium 6
+# from selenium import webdriver
+# import time
+#
+# browser = webdriver.Chrome()
+# browser.get('https://www.baidu.com')
+# browser.execute_script('window.open()')  # 执行脚本来开启新页签
+# print(browser.window_handles)  # 获取当前所有页签
+# browser.switch_to.window(browser.window_handles[1])
+# browser.get('https://www.taobao.com')
+# time.sleep(1)
+# browser.switch_to.window(browser.window_handles[0])
+# browser.get('https://python.org')
 
-browser = webdriver.Chrome()
-browser.get('https://www.baidu.com')
-browser.execute_script('window.open()')  # 执行脚本来开启新页签
-print(browser.window_handles)  # 获取当前所有页签
-browser.switch_to.window(browser.window_handles[1])
-browser.get('https://www.taobao.com')
-time.sleep(1)
-browser.switch_to.window(browser.window_handles[0])
-browser.get('https://python.org')
 
+# splash 1
+import requests
+
+url = 'http://192.168.99.100:8050/render.png?url=https://www.jd.com&wait=5&width=1000&height=700'
+rsp = requests.get(url)
+with open('jd.png', 'wb') as f:
+    f.write(rsp.content)
